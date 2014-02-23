@@ -1,8 +1,6 @@
 backbone.paginator-Example
 ==========================
 
-backbone.paginator 的例子 中文使用说明
-
 backbone.paginator是backbone的分页组件，功能很稳定，推荐使用。
 
 paginator主要有两种类型：Paginator.requestPager和Paginator.clientPager。
