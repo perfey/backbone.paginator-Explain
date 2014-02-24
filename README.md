@@ -19,7 +19,7 @@ totalRows           //一共取多少条记录
 接口返回：          
 {'total': xxx, 'result': xxx}    //total所有记录的总数量    result指定行的记录结果集      
 
-有了这样子的接口，分页集合可以如下方法定义：
+有了这样子的接口，分页集合可以用如下方法定义：
 
 var XXXPage = Backbone.Paginator.requestPager.extend({
 
