@@ -70,7 +70,7 @@ xPage.information   //分页的基本信息的对象，属性currentPage当前�
 xPage.models       //当前页的数据集合(model元素的数组)      
 xPage.length       //当前页数据的数量       
 
-对象中的重要方法：
+对象中的重要方法：          
 xPage.info()        //获取information       
 xPage.goTo(n)       //获取第n页的信息       
 xPage.prevPage()    //上一页        
