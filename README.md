@@ -71,11 +71,17 @@ xPage.models       //当前页的数据集合(model元素的数组)
 xPage.length       //当前页数据的数量       
 
 对象中的重要方法：
-xPage.info()        //获取information
-xPage.goTo(n)       //获取第n页的信息
-xPage.prevPage()    //上一页
-xPage.nextPage()    //下一页
-xPage.howManyPer(m) //设置每页显示的条数
+xPage.info()        //获取information       
+xPage.goTo(n)       //获取第n页的信息       
+xPage.prevPage()    //上一页        
+xPage.nextPage()    //下一页        
+xPage.howManyPer(m) //设置每页显示的条数        
+
+利用上面的方法可以展示出页码信息，也可以增加上翻页的操作，还可以设置改变每页的显示条数。            
+获取到的model用来展示具体每一条的详细信息。         
+初次展示数据，可以直接调用      
+xPage.goTo(1)；         
+这样子直接就获取了第一页的数据，并展示出来。        
 
 
 Paginator.clientPager
