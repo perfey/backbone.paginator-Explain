@@ -8,14 +8,16 @@ paginator主要有两种类型：Paginator.requestPager和Paginator.clientPager�
 Paginator.requestPager
 一次请求一页的数据，下一页会继续从服务器请求数据，接口需要返回总记录数量，组件会根据配置，自动计算出总页数，此类型适用于数据量比较大的情况。
 
-现在以后台接口返回json类型数据来说明
-接口地址：xxxUrl
-请求参数：xxx   //一个参数
-          ...
-          beginRow  //从第几条记录开始取  参数命名可调整
-          totleRows //一共取多少条记录    参数命名可调整
-接口返回：
-{'totle': xxx, 'result': xxx}    //totle所有记录的总数量    result指定行的记录结果集
+现在举例说明        
+首先后台提供如下接口          
+接口地址：xxxUrl    
+请求参数：          
+xxx         //一个参数    
+...       
+beginRow            //从第几条记录开始取              
+totleRows           //一共取多少条记录                
+接口返回：          
+{'totle': xxx, 'result': xxx}    //totle所有记录的总数量    result指定行的记录结果集      
 
 有了这样子的接口，分页集合可以如下方法定义：
 
