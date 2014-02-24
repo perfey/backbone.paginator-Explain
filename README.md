@@ -62,6 +62,8 @@ var XXXPage = Backbone.Paginator.requestPager.extend({
     }
 });
 
+集合定义完毕，声明一个新对象。
+var xPage = new XXXPage();
 
 Paginator.clientPager
 一次把数据全部取回来，组件会根据配置自动分页，并展示对应页码的数据，此类型适用于数据量较小的情况。
