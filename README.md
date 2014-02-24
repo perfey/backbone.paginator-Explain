@@ -18,6 +18,7 @@ Paginator.requestPager
 {'totle': xxx, 'result': xxx}    //totle所有记录的总数量    result指定行的记录结果集
 
 有了这样子的接口，分页集合可以如下方法定义：
+
 var XXXPage = Backbone.Paginator.requestPager.extend({
 
     model: XXXmodel,       //集合的模型
