@@ -65,10 +65,17 @@ var XXXPage = Backbone.Paginator.requestPager.extend({
 集合定义完毕，声明一个新对象。      
 var xPage = new XXXPage();  
 
-对象中几个重要属性：        
-xPage.infomation   //分页的基本信息的对象，属性currentPage当前页，属性totalPages总页数，属性totalRecords总记录数    
-xPage.models       //当前页的数据集合(model元素的数组)
-xPage.length       //当前页数据的数量
+对象中重要属性：        
+xPage.information   //分页的基本信息的对象，属性currentPage当前页，属性totalPages总页数，属性totalRecords总记录数    
+xPage.models       //当前页的数据集合(model元素的数组)      
+xPage.length       //当前页数据的数量       
+
+对象中的重要方法：
+xPage.info()        //获取information
+xPage.goTo(n)       //获取第n页的信息
+xPage.prevPage()    //上一页
+xPage.nextPage()    //下一页
+xPage.howManyPer(m) //设置每页显示的条数
 
 
 Paginator.clientPager
