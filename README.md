@@ -15,9 +15,9 @@ Paginator.requestPager
 xxx         //一个参数    
 ...       
 beginRow            //从第几条记录开始取              
-totleRows           //一共取多少条记录                
+totalRows           //一共取多少条记录                
 接口返回：          
-{'totle': xxx, 'result': xxx}    //totle所有记录的总数量    result指定行的记录结果集      
+{'total': xxx, 'result': xxx}    //total所有记录的总数量    result指定行的记录结果集      
 
 有了这样子的接口，分页集合可以如下方法定义：
 
@@ -50,7 +50,7 @@ var XXXPage = Backbone.Paginator.requestPager.extend({
         beginRow: function () {
             return (this.currentPage - 1) * this.perPage      //计算出开始取记录的行数
         },
-        totleRows: function () {
+        totalRows: function () {
             return this.perPage                               //需要返回多少条记录
         }
     },
