@@ -67,7 +67,7 @@ var xPage = new XXXPage();
 
 对象中重要属性：        
 xPage.information   //分页的基本信息的对象，属性currentPage当前页，属性totalPages总页数，属性totalRecords总记录数    
-xPage.models       //当前页的数据集合(model元素的数组)      
+xPage.models       //当前页的数据集合(model元素的数组),就是backbone的属性             
 xPage.length       //当前页数据的数量       
 
 对象中的重要方法：          
@@ -86,6 +86,69 @@ xPage.goTo(1)；
 
 Paginator.clientPager
 一次把数据全部取回来，组件会根据配置自动分页，并展示对应页码的数据，此类型适用于数据量较小的情况。
+
+现在举例说明
+首先后台提供如下接口
+接口地址：xxxUrl
+请求参数：xxx
+返回结果：[{X11: x11, X12: x12}, {X21: x21, X22: x22} .....]
+
+有了接口，分页集合可以用如下方法定义：
+
+var XXXPage =  Backbone.Paginator.clientPager.extend({
+
+        model: XXXmodel,       //集合的模型
+
+        paginator_core: {
+            url: xxxUrl,
+            type: 'POST',
+            headers: {
+                'serviceType': 'XXX',
+                'UT': XXX,
+                'Content-Type': 'XXX',
+                'Accept': 'XXX'
+            },
+            dataType: 'json',
+            processData: false      //根据情况设定
+        },
+
+        paginator_ui: {          //页码配置信息
+            firstPage: 1,        //第一页是哪一页
+            currentPage: 1,      //当前页是第几页
+            perPage: 30,          //每页显示的条目数
+            pagesInRange: 3     //页面中展示前后的页数，本例中没有用到，可不设置
+        },
+
+        server_api: {
+            xxx      //请求参数
+        },
+
+        parse: function (response)  {     
+            return response;       //结果直接返回即可     
+        }     
+});     
+
+集合定义完毕，声明一个新对象。          
+var xPage = new XXXPage();     
+
+对象中的重要属性：     
+xPage.origModels      // 储存所有的数据模型     
+xPage.models       //当前页的数据集合(model元素的数组),就是backbone的属性       
+
+对象中的重要方法：    
+xPage.pager()     //把获取的数据按照配置设置分页信息和把当前要展示的数据放到models中
+分页方法同clientPager一样
+
+调用backbone的fech方法获取数据，并覆盖回调的success函数
+xPage.fetch({
+     success: function () {
+          xPage.pager();
+     }
+}); 
+fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。
+页码的操作方法，同clientPager是一样的。
+
+
 
 
 
