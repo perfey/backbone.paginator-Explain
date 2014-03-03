@@ -87,14 +87,14 @@ xPage.goTo(1)；
 Paginator.clientPager
 一次把数据全部取回来，组件会根据配置自动分页，并展示对应页码的数据，此类型适用于数据量较小的情况。
 
-现在举例说明
-首先后台提供如下接口
-接口地址：xxxUrl
-请求参数：xxx
-返回结果：[{X11: x11, X12: x12}, {X21: x21, X22: x22} .....]
-
-有了接口，分页集合可以用如下方法定义：
-
+现在举例说明        
+首先后台提供如下接口        
+接口地址：xxxUrl        
+请求参数：xxx       
+返回结果：[{X11: x11, X12: x12}, {X21: x21, X22: x22} .....]        
+    
+有了接口，分页集合可以用如下方法定义：      
+    
 var XXXPage =  Backbone.Paginator.clientPager.extend({
 
         model: XXXmodel,       //集合的模型
@@ -136,17 +136,17 @@ xPage.origModels      // 储存所有的数据模型
 xPage.models       //当前页的数据集合(model元素的数组),就是backbone的属性       
 
 对象中的重要方法：    
-xPage.pager()     //把获取的数据按照配置设置分页信息和把当前要展示的数据放到models中
-分页方法同clientPager一样
+xPage.pager()     //把获取的数据按照配置设置分页信息和把当前要展示的数据放到models中        
+分页方法同clientPager一样       
 
-调用backbone的fech方法获取数据，并覆盖回调的success函数
+调用backbone的fech方法获取数据，并覆盖回调的success函数     
 xPage.fetch({
      success: function () {
           xPage.pager();
      }
-}); 
-fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。
-页码的操作方法，同clientPager是一样的。
+});         
+fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。        
+页码的操作方法，同clientPager是一样的。         
 
 
 
