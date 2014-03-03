@@ -5,7 +5,7 @@ backbone.paginator是backbone的分页组件，功能很稳定，推荐使用。
 
 paginator主要有两种类型：Paginator.requestPager和Paginator.clientPager。
 
-Paginator.requestPager
+<b>Paginator.requestPager</b>               
 一次请求一页的数据，下一页会继续从服务器请求数据，接口需要返回总记录数量，组件会根据配置，自动计算出总页数，此类型适用于数据量比较大的情况。
 
 现在举例说明        
@@ -84,7 +84,7 @@ xPage.goTo(1)；
 这样子直接就获取了第一页的数据，并展示出来。        
 
 
-Paginator.clientPager
+<b>Paginator.clientPager</b>                       
 一次把数据全部取回来，组件会根据配置自动分页，并展示对应页码的数据，此类型适用于数据量较小的情况。
 
 现在举例说明        
