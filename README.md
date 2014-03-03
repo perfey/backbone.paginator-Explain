@@ -140,12 +140,12 @@ xPage.pager()     //把获取的数据按照配置设置分页信息和把当前
 分页方法同clientPager一样       
 
 调用backbone的fech方法获取数据，并覆盖回调的success函数     
-xPage.fetch({
-     success: function () {
-          xPage.pager();
-     }
-});         
-fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。        
+xPage.fetch({           
+     success: function () {         
+          xPage.pager();            
+     }      
+});              
+fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。                
 页码的操作方法，同clientPager是一样的。         
 
 
