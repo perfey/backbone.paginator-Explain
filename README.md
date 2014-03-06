@@ -84,6 +84,7 @@ xPage.goTo(1)；
 这样子直接就获取了第一页的数据，并展示出来。        
 
 
+
 <b>Paginator.clientPager</b>                       
 一次把数据全部取回来，组件会根据配置自动分页，并展示对应页码的数据，此类型适用于数据量较小的情况。
 
@@ -149,10 +150,36 @@ fetch方法会从后台获取数据，放到xPage的origModels属性中，然后
 页码的操作方法，同clientPager是一样的。         
 
 
+clientPager还会有另外一种情况，事前已经获取到要展示的数据，没有办法通过Paginator.requestPager集合去获取数据，那么此时只需要把获取到的数据装载到Paginator.requestPager集合中即可，现在举例说明。               
 
+已经获取到数据，并存放在集合中：        
+var xcollection;            
+...             
+xcollection      //存放着所有需要分页展示的数据         
 
+定义分页集合        
 
+var XXXPage = Backbone.Paginator.clientPager.extend({       
+        
+      model:XXXmodel,           
+        
+      origModels: [],           
+        
+      paginator_ui: {           
+           firstPage: 1,            
+           currentPage: 1,          
+           perPage: 30          
+      }         
+});         
 
+var xPage = new XXXPage();               
 
-未完待续...
+xcollection.each(function (model) {                 
+     xPage.addModel(model);               //把model放到xPage的origModels中              
+});                 
+xPage.pager();          //按照配置分页并生成对应数据            
+            
+其他的同正常情况一致，这种是手动添加模型到clientPager。             
+Paginator.clientPager的核心是要理解origModels属性存放着所有数据，models属性存放着当前要展示的数据，pager()方法会初始化数据。            
+
 
