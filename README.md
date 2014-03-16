@@ -138,7 +138,7 @@ xPage.models       //当前页的数据集合(model元素的数组),就是backbo
 
 对象中的重要方法：    
 xPage.pager()     //把获取的数据按照配置设置分页信息和把当前要展示的数据放到models中        
-分页方法同clientPager一样       
+分页方法同requestPager一样       
 
 调用backbone的fech方法获取数据，并覆盖回调的success函数     
 xPage.fetch({           
