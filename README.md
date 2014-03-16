@@ -147,7 +147,7 @@ xPage.fetch({
      }      
 });              
 fetch方法会从后台获取数据，放到xPage的origModels属性中，然后pager方法把所有的数据按照配置生成分页信息，并获取出当前页的数据放到models属性里。这个时候，就可以展示当前页的view了。                
-页码的操作方法，同clientPager是一样的。         
+页码的操作方法，同requestPager是一样的。         
 
 
 clientPager还会有另外一种情况，事前已经获取到要展示的数据，没有办法通过Paginator.requestPager集合去获取数据，那么此时只需要把获取到的数据装载到Paginator.requestPager集合中即可，现在举例说明。               
