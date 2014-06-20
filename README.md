@@ -1,4 +1,4 @@
-backbone.paginator-Example
+backbone.paginator-Explain
 ==========================
 
 backbone.paginator是backbone的分页组件，功能很稳定，推荐使用。
